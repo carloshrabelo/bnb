@@ -1,3 +1,6 @@
+import { css } from "@emotion/react";
+
+export const style = css`
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -75,6 +78,39 @@
 
 * {
   box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: var(--font-inter), Helvetica, sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+
+* {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
@@ -105,3 +141,4 @@ a {
     color-scheme: dark;
   }
 }
+`
