@@ -22,6 +22,7 @@
     ],
     "paths": {
       "@/*": ["./*"],
+      "test-utils": ["./lib/test-utils.tsx"],
       "@lib/*": [
         "./lib/*"
       ],
