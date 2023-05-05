@@ -2,7 +2,7 @@ import useSWRMutation, { MutationFetcher } from "swr/mutation";
 
 type Token = string;
 
-interface LoginParams {
+export interface LoginParams {
   username: string;
   password: string;
 }

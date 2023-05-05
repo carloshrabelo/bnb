@@ -5,18 +5,15 @@ import Input from "@components/Input";
 
 import { ChangeEvent, FormEvent, useState } from "react";
 import { ButtonPlace, Form } from "./style";
-import { useRouter } from "next/navigation";
-import useAuth from "@/hooks/useAuth";
+import { LoginParams } from "@/hooks/useAuth";
+import { data } from "./mock";
 
-export default function Login() {
-  const router = useRouter();
-  const redirect = () => router.push("/");
-  const { login } = useAuth({ onLogin: redirect });
+interface Props {
+  onLogin: (data: LoginParams) => void;
+}
 
-  const [formData, setFormData] = useState({
-    username: "admin@example.com",
-    password: "admin",
-  });
+export default function Login({ onLogin }: Props) {
+  const [formData, setFormData] = useState(data);
 
   const updateFormData = (e: ChangeEvent<HTMLInputElement>) =>
     setFormData((data) => ({ ...data, [e.target.name]: e.target.value }));
@@ -25,7 +22,7 @@ export default function Login() {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
 
-    login({
+    onLogin({
       username: data.get("username") as string,
       password: data.get("password") as string,
     });
@@ -39,6 +36,7 @@ export default function Login() {
         type="email"
         autoComplete="email"
         name="username"
+        aria-label="username"
         placeholder="admin@example.com"
         label="Username"
       />
@@ -49,6 +47,7 @@ export default function Login() {
         type="password"
         autoComplete="password"
         name="password"
+        aria-label="password"
         placeholder="Type your password"
         label="Password"
       />
