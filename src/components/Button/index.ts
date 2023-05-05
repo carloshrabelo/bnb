@@ -27,3 +27,5 @@ export const Button = styled.button<{ color?: Colors }>`
     background-color: ${(p) => p.theme.colors[p.color || "primary"].dark};
   }
 `;
+
+export default Button;

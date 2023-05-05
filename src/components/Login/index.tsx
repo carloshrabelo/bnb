@@ -1,13 +1,12 @@
 "use client";
 
-import { Button } from "@/component/Button";
-import Input from "@/component/Input";
+import { Button } from "@components/Button";
+import Input from "@components/Input";
 
 import { ChangeEvent, FormEvent, useState } from "react";
 import { ButtonPlace, Form } from "./style";
 import { useRouter } from "next/navigation";
 import useAuth from "@/hooks/useAuth";
-import { decodeJwt } from "jose";
 
 export default function Login() {
   const router = useRouter();

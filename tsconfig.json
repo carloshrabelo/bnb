@@ -23,9 +23,8 @@
     "paths": {
       "@/*": ["./*"],
       "test-utils": ["./lib/test-utils.tsx"],
-      "@lib/*": [
-        "./lib/*"
-      ],
+      "@components/*": ["./components/*"],
+      "@lib/*": ["./lib/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
