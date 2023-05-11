@@ -1,6 +1,6 @@
-import userEvent from "@testing-library/user-event";
-import { screen, render, cleanup } from "test-utils";
+import { userEvent, render, cleanup } from "test-utils";
 import Page from "./page";
+import { data } from "@components/Login/mock";
 
 jest.mock("next/navigation", () => ({
   useRouter: jest.fn(),
@@ -18,10 +18,6 @@ jest.mock("@/hooks/useAuth", () => () => ({
   logout: jest.fn(),
 }));
 
-// jest.mock("@/hooks/useAuth", () => ({
-//   default: jest.fn()
-// }))
-
 describe("<Page/>", () => {
   describe("#render", () => {
     it("Should render Page Component", () => {
@@ -34,24 +30,22 @@ describe("<Page/>", () => {
     it("Should render Login Component", async () => {
       const { queryByText, queryByLabelText } = render(<Page />);
 
-      const username = screen.getByLabelText(/username/i);
+      const username = queryByLabelText("username")!;
+      const password = queryByLabelText("password")!;
 
-      // const username = queryByLabelText("username")!
-      const password = queryByLabelText("password");
-      // const submit = queryByText("Submit")
       const submit = queryByText("Submit");
 
       expect(username).toBeInTheDocument();
+      expect(password).toBeInTheDocument();
 
       userEvent.type(username, "o");
-      expect(username).toHaveValue("admin@example.como");
+      userEvent.type(password, "0");
 
       submit?.click();
 
-      // expect(username).toBeInTheDocument();
       expect(mocklogin).toBeCalledWith({
-        password: "admin",
-        username: "admin@example.como",
+        username: data.username + "o",
+        password: data.password + "0",
       });
     });
   });

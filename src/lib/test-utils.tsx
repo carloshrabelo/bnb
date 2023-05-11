@@ -1,4 +1,6 @@
 import { render, RenderOptions } from "@testing-library/react";
+export { default as userEvent } from "@testing-library/user-event";
+
 import EmotionRRegistry from "@lib/emotion";
 
 const customRender = (

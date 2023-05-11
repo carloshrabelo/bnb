@@ -1,5 +1,4 @@
-import userEvent from "@testing-library/user-event";
-import { render } from "test-utils";
+import { userEvent, render } from "test-utils";
 import Login from ".";
 import { data } from "./mock";
 
@@ -25,19 +24,21 @@ describe("<Login/>", () => {
       );
 
       const username = queryByLabelText("username")!;
-      const password = queryByLabelText("password");
-      // const submit = queryByText("Submit")
+      const password = queryByLabelText("password")!;
+
       const submit = queryByText("Submit");
 
       expect(username).toBeInTheDocument();
+      expect(password).toBeInTheDocument();
 
       userEvent.type(username, "o");
+      userEvent.type(password, "0");
 
       submit?.click();
 
       expect(mockOnLogin).toBeCalledWith({
-        password: "admin",
         username: data.username + "o",
+        password: data.password + "0",
       });
     });
   });
