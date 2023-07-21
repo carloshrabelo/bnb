@@ -1,5 +1,6 @@
 import EmotionRRegistry from "@/lib/emotion";
 import { inter } from "./fonts";
+import './globals.css';
 
 export const metadata = {
   title: "Create Next App",

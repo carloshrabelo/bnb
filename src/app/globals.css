@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+
+@layer components {
+  .cta-btn {
+    @apply py-4 px-10 bg-green-500 text-white font-semibold rounded hover:bg-red-600;
+  }
+}
+
+@tailwind utilities;
