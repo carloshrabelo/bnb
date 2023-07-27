@@ -3,8 +3,12 @@
 
 @layer components {
   .cta-btn {
-    @apply py-4 px-10 bg-green-500 text-white font-semibold rounded hover:bg-red-600;
+    @apply py-4 px-10 bg-yellow-500 text-white font-semibold rounded hover:bg-red-600;
   }
+}
+
+body{
+  background-color: hsl(0 0% 95%);
 }
 
 @tailwind utilities;

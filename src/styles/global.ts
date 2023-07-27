@@ -17,6 +17,6 @@ export const style = css`
 
   body {
     color: #000;
-    background: linear-gradient(to bottom, transparent, #fff) #d6dbdc;
+    /* background: linear-gradient(to bottom, transparent, #fff) #d6dbdc; */
   }
 `;

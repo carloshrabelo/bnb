@@ -1,6 +1,6 @@
 import EmotionRRegistry from "@/lib/emotion";
 import { inter } from "./fonts";
-import './globals.css';
+import "./globals.css";
 
 export const metadata = {
   title: "Create Next App",
@@ -9,9 +9,17 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: JSX.Element }) {
   return (
-    <html lang="en" className={inter.className}>
-      <body>
-        <EmotionRRegistry>{children}</EmotionRRegistry>
+    <html lang="en" className={inter.className} data-theme="mytheme">
+      {/* <body className="h-screen bg-gradient-to-r from-[#2e026d] to-[#15162c]"> */}
+      <body className="h-screen flex items-center text-sm">
+        <div className="mockup-phone">
+          <div className="camera"></div>
+          <div className="display">
+            <div className="artboard artboard-demo phone-1 h-screen bg-gradient-to-r from-[#2e026d] to-[#15162c] overflow-auto">
+              <EmotionRRegistry>{children}</EmotionRRegistry>
+            </div>
+          </div>
+        </div>
       </body>
     </html>
   );

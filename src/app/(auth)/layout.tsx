@@ -7,8 +7,8 @@ export const metadata = {
 
 export default function AuthLayout({ children }: { children: JSX.Element }) {
   return (
-    <Main>
+    <main className="grid items-center justify-center h-full w-full">
       {children}
-    </Main>
+    </main>
   );
 }
